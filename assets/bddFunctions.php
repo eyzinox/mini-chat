@@ -54,10 +54,6 @@
         }
         $disp->closeCursor();
 
-        for($page= 1; $page< $nbPages; $page++)
-        {
-        }
-
         /* DEBUG */
 /*         echo $cpt_messages . ' message<br> ';
         echo $nbPages . ' pages<br> ';
@@ -72,5 +68,7 @@
         $nbPages= ceil($cpt_messages / 10);
         $_SESSION['nbPages']= $nbPages;
         $listMsg->closeCursor();
+        
+        return $nbPages;
     }
 ?>

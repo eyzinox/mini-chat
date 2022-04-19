@@ -24,7 +24,7 @@
     $_SESSION['pseudo']= $pseudo;
     
     /* DEBUG */
-    print_r($_POST);
+    //print_r($_POST);
     /* END DEBUG */
 
     header("Refresh: 0; URL=../index.php");

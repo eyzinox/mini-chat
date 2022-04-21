@@ -3,7 +3,7 @@
     function connectBDD()
     {
         try {
-            $bdd= new PDO('mysql:host=localhost; dbname=chat', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $bdd= new PDO('mysql:host=localhost; dbname=chat', 'eyzinox', 'b5S8wp9L#', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         } catch (Exception $e) {
             die('Erreur: ' . $e->getMessage());
         }
@@ -33,10 +33,12 @@
         /* LIMITES */
         $lim_max= $page * 10 ;
         $lim_min= $lim_max - 10;
-/*         if($page== 1)
+
+        if($nbPages== 0)
+        {
             $lim_min= 0;
-        else
-            $lim_min= $lim_max - 10; */
+            $lim_max= 10;
+        }
         
         $listMsg->closeCursor();
         /* OLD DISPLAY */
@@ -50,7 +52,8 @@
 
         while($data= $disp->fetch())
         {
-            echo($data['pseudo'] . ': ' . $data['message'] . '<br>');
+            $mes= '<div class="text-break"><strong>' . $data['pseudo'] . '</strong>: ' . $data['message'] . '</div>';
+            echo($mes);
         }
         $disp->closeCursor();
 
@@ -58,17 +61,5 @@
 /*         echo $cpt_messages . ' message<br> ';
         echo $nbPages . ' pages<br> ';
         echo $lim_min . '-' . $lim_max . ' <br> '; */
-    }
-
-    function PagesCount()
-    {
-        $bdd= connectBDD();
-        $listMsg= $bdd->query('SELECT id FROM chat ORDER BY id DESC');
-        $cpt_messages= $listMsg->rowCount();
-        $nbPages= ceil($cpt_messages / 10);
-        $_SESSION['nbPages']= $nbPages;
-        $listMsg->closeCursor();
-        
-        return $nbPages;
     }
 ?>

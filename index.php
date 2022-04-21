@@ -90,9 +90,9 @@ if ($_GET['page'] >= $nbPages)
                         <button type="submit" class="btn btn-primary">Envoyer</button>
                         <a href="./" class="btn btn-primary">⟳</a>
                         <div class="btn-group me-2" role="group">
-                            <a href="./index.php?page=<?php echo ($page - 1); ?>"><button type="button" class="btn btn-primary"><?php echo ($page - 1); ?></button></a>
-                            <a href="./index.php?page=<?php echo ($page); ?>"><button type="button" class="btn btn-primary"><?php echo ($page); ?></button></a>
-                            <a href="./index.php?page=<?php echo ($page + 1); ?>"><button type="button" class="btn btn-primary"><?php echo ($page + 1); ?></button></a>
+                            <?php pagem1();
+                            page();
+                            pagep1(); ?>
                             <button type="button" class="btn btn-secondary"><?php echo ($page . '/' . $nbPages); ?></button>
                         </div>
                     </div>
@@ -162,9 +162,9 @@ if ($_GET['page'] >= $nbPages)
                         <button type="submit" class="btn btn-primary">Envoyer</button>
                         <a href="./" class="btn btn-primary">⟳</a>
                         <div class="btn-group me-2" role="group">
-                            <a href="./index.php?page=<?php echo ($page - 1); ?>"><button type="button" class="btn btn-primary"><?php echo ($page - 1); ?></button></a>
-                            <a href="./index.php?page=<?php echo ($page); ?>"><button type="button" class="btn btn-primary"><?php echo ($page); ?></button></a>
-                            <a href="./index.php?page=<?php echo ($page + 1); ?>"><button type="button" class="btn btn-primary"><?php echo ($page + 1); ?></button></a>
+                            <?php pagem1();
+                            page();
+                            pagep1(); ?>
                             <button type="button" class="btn btn-secondary"><?php echo ($page . '/' . $nbPages); ?></button>
                         </div>
                     </div>
@@ -188,5 +188,6 @@ if ($_GET['page'] >= $nbPages)
         </div>
     </div>
 </body>
+<?php delErrCode(); ?>
 
 </html>
